@@ -1,10 +1,8 @@
 package db.components;
 
-import java.io.FileInputStream;
-import java.util.Properties;
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import java.util.ResourceBundle;
 
 public   class DbConnection {
 	
@@ -24,31 +22,16 @@ public   class DbConnection {
 	{
 		Connection dbCon = null;
 	try {
-		    String ConfigFilePath ="C:\\Users\\Sougata_S_B\\eclipse-workspace"
-		    		+ "\\StrutsWebApp\\target\\StrutsLoginEx\\WEB-INF\\classes\\db.properties" ;
-
-			Properties props = new Properties();
-			FileInputStream in = new FileInputStream(ConfigFilePath);
-			props.load(in);
-			in.close();
-		
-			String driver = props.getProperty("DB_DRIVER_CLASS");
-			System.out.println("Driver --" + driver );
-		
-			if (driver != null) {
-				Class.forName(driver);
+		    ResourceBundle Res = ResourceBundle.getBundle("db");
+			if (Res.getString("DB_DRIVER_CLASS") != null) {
+				Class.forName(Res.getString("DB_DRIVER_CLASS"));
 				}
 			else
 			{
 				System.out.println("Driver not initialized");
 				
 			}
-			String url = props.getProperty("DB_URL") ; 
-			String dbUser = props.getProperty("DB_USERNAME");
-			String dbPwd = props.getProperty("DB_PASSWORD");
-			System.out.println("url --" +url +  "  dbUser --- "+ dbUser + " dbPwd  " + dbPwd);
-			dbCon = DriverManager.getConnection(url,dbUser,dbPwd);
-		
+			dbCon = DriverManager.getConnection(Res.getString("DB_URL"),Res.getString("DB_USERNAME"),Res.getString("DB_PASSWORD"));
 	  } 
 	catch (Exception e)
 		{

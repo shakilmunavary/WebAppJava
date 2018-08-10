@@ -34,6 +34,7 @@ public class RegistrationAction extends Action {
 			
 			if  (c!=null)
 			{
+				//System.out.println("email---" + email);
 				CallableStatement cs = c.prepareCall("{call sp_createUser(?,?,?)}") ;
  				cs.setString(1, un);
 				cs.setString(2, email);

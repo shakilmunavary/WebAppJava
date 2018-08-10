@@ -16,7 +16,7 @@
 		</tr>
 		<tr> 
 			<td>Email </td>
-			<td><html:text property="userName" /> </td>
+			<td><html:text property="email" /> </td>
 		</tr>
 		<tr> 
 			<td>Password </td>
