@@ -1,5 +1,6 @@
-com\jwt\struts\form\LoginForm.class
+com\bl\business.class
 db\components\DbConnection.class
 com\jwt\struts\action\RegistrationAction.class
 com\jwt\struts\action\LoginAction.class
 com\jwt\struts\form\RegistrationForm.class
+com\jwt\struts\form\LoginForm.class

@@ -16,6 +16,8 @@ import com.jwt.struts.form.RegistrationForm;
 
 import db.components.*;
 
+import com.bl.business;
+
 public class RegistrationAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
@@ -26,7 +28,7 @@ public class RegistrationAction extends Action {
 		String un= regForm.getUserName();
 		String email= regForm.getEmail();
 		String pw= regForm.getPassword();
-
+		int rating =  business.getRating(3);
 		try {
 			
 		 
@@ -34,11 +36,12 @@ public class RegistrationAction extends Action {
 			
 			if  (c!=null)
 			{
-				//System.out.println("email---" + email);
-				CallableStatement cs = c.prepareCall("{call sp_createUser(?,?,?)}") ;
+				System.out.println("rating---" + String.valueOf(rating));
+				CallableStatement cs = c.prepareCall("{call sp_createUser(?,?,?,?)}") ;
  				cs.setString(1, un);
 				cs.setString(2, email);
 				cs.setString(3, pw);
+				cs.setString(4, String.valueOf(rating));
 				cs.executeQuery();
 				return mapping.findForward("success");
 			}
