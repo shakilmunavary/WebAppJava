@@ -12,6 +12,7 @@ public class RegTest {
 		business bus = new business();
 		//fail("Not yet implemented");
 		assertEquals(bus.getRating(5), 9);
+		
 	}
 
 }
