@@ -8,6 +8,13 @@
 	<name>StrutsWebApp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+	<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-firefox-driver -->
+		<dependency>
+    		<groupId>org.seleniumhq.selenium</groupId>
+    		<artifactId>selenium-firefox-driver</artifactId>
+   			<version>3.14.0</version>
+		</dependency>
+	
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -39,7 +46,19 @@
 
 
 	</dependencies>
+	
 	<build>
+		<plugins>
+        	<plugin>
+         	 	<groupId>org.apache.maven.plugins</groupId>
+          		<artifactId>maven-surefire-plugin</artifactId>
+          		<version>2.19.1</version>
+          		<configuration>
+                	<printSummary>true</printSummary>
+            </configuration>
+        	</plugin>
+  		</plugins>
 		<finalName>StrutsLoginEx</finalName>
 	</build>
+
 </project>
