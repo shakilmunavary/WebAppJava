@@ -61,4 +61,13 @@
 		<finalName>StrutsLoginEx</finalName>
 	</build>
 
+   <distributionManagement>
+       <repository>
+         <id>internal.repo</id>
+         <name>Internal repo</name>
+         <url>file:/var/lib/jenkins/workspace/JavaWeb_BuildPackages/target</url>
+       </repository>
+   </distributionManagement>
+	
+	
 </project>
